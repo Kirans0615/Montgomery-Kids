@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ---------------------------------------------------------------------
+   Global animation keyframes — docs/BUILD-PROMPT.md §3.4.
+   Keep these names and values EXACTLY as specified; do not edit.
+   --------------------------------------------------------------------- */
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;background:#FFF8EC;color:#1C2A20}
+@keyframes fade-up{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+@keyframes fade-down{from{opacity:0;transform:translateY(-12px)}to{opacity:1;transform:translateY(0)}}
+.animate-fade-up{animation:fade-up .8s cubic-bezier(0.16,1,0.3,1) both}
+.animate-fade-down{animation:fade-down .7s cubic-bezier(0.16,1,0.3,1) both}
+.stagger-1{animation-delay:0ms}.stagger-2{animation-delay:120ms}.stagger-3{animation-delay:240ms}
+.stagger-4{animation-delay:360ms}.stagger-5{animation-delay:480ms}.stagger-6{animation-delay:600ms}
+@media (prefers-reduced-motion: reduce){
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important;scroll-behavior:auto!important}
+}
+
+/* ---------------------------------------------------------------------
+   Marquee keyframes — src/components/motion/Marquee.tsx (Task 5, §8.5).
+   The track renders two identical copies of its content side by side and
+   translates by exactly -50%/+50% so the loop is seamless; Marquee.tsx sets
+   `animation-duration` per-instance from its `speed` prop.
+   --------------------------------------------------------------------- */
+@keyframes marquee-left{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+@keyframes marquee-right{from{transform:translateX(-50%)}to{transform:translateX(0)}}
+.animate-marquee-left{animation-name:marquee-left;animation-timing-function:linear;animation-iteration-count:infinite}
+.animate-marquee-right{animation-name:marquee-right;animation-timing-function:linear;animation-iteration-count:infinite}
+
+/* ---------------------------------------------------------------------
+   Navbar DONATE pill heart pulse — src/components/layout/Navbar.tsx
+   (Task 7, §6.0): "pulses gently every 4s". A single 4s loop that sits at
+   rest for most of the cycle and pulses briefly near the end, rather than a
+   continuous pulse. Covered by the reduced-motion override above.
+   --------------------------------------------------------------------- */
+@keyframes heart-pulse{0%,88%,100%{transform:scale(1)}92%{transform:scale(1.25)}96%{transform:scale(1)}}
+.animate-heart-pulse{animation:heart-pulse 4s ease-in-out infinite}
+
+/* ---------------------------------------------------------------------
+   Skip-to-content link — src/App.tsx (Task 7, §10). Visually hidden until
+   keyboard-focused, then pinned above everything else.
+   --------------------------------------------------------------------- */
+.skip-link{position:absolute;left:1rem;top:-3rem;z-index:100;background:#FFB400;color:#1C2A20;padding:.75rem 1.25rem;border-radius:9999px;font-weight:700;transition:top .2s ease}
+.skip-link:focus{top:1rem}

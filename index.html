@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <link rel="apple-touch-icon" href="/images/favicon.png" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#FFF8EC" />
+    <title>4Montgomery's Kids | Helping Foster Children in Montgomery County, MD</title>
+
+    <!--
+      Google Fonts: Fraunces (variable, opsz/SOFT/WONK axes), Plus Jakarta
+      Sans, Caveat.
+
+      Loaded *non-blockingly*: `media="print"` means the browser fetches the
+      stylesheet but doesn't hold up first paint for it, and `onload` flips it
+      to `all` the moment it lands. As a plain `rel="stylesheet"` this single
+      request was Lighthouse's top render-blocking resource on mobile — 830 ms
+      of the 2,040 ms it attributed to blocking CSS (Task 15, first run). The
+      `<noscript>` copy keeps the fonts for no-JS visitors, who get the
+      `<noscript>` content below anyway. Every family has a real system
+      fallback in tailwind.config.ts, so text is readable from the first paint
+      and swaps in place (`display=swap`) with no layout shift — measured CLS
+      is well under the 0.05 target across all pages.
+    -->
+    <!--
+      The logo lockup is in the fixed header on every route, and on mobile it
+      is what Lighthouse picks as the Largest Contentful Paint element. Being
+      a React-rendered `<img>`, the browser can't discover it until the entry
+      bundle has downloaded, parsed and rendered — measured as 2,097 ms of
+      "Load Delay", 56% of a 3.8s LCP. Preloading it lets the fetch start
+      from the HTML, in parallel with the JS rather than after it.
+    -->
+    <link
+      rel="preload"
+      as="image"
+      href="/images/opt/logo-lockup.webp"
+      type="image/webp"
+      fetchpriority="high"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,0..100,0..1;1,9..144,500..800,0..100,0..1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;700&display=swap"
+      rel="stylesheet"
+      media="print"
+      onload="this.media='all'"
+    />
+    <noscript>
+      <link
+        href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght,SOFT,WONK@0,9..144,500..800,0..100,0..1;1,9..144,500..800,0..100,0..1&family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@500;700&display=swap"
+        rel="stylesheet"
+      />
+    </noscript>
+  </head>
+  <body>
+    <div id="root"></div>
+    <noscript>
+      <div style="max-width: 40rem; margin: 3rem auto; padding: 0 1.5rem; font-family: sans-serif; color: #2b2b2b;">
+        <h1>4Montgomery's Kids</h1>
+        <p>
+          4Montgomery's Kids enriches the lives of abused and neglected children and
+          youth in Montgomery County's child welfare system by providing them with
+          opportunities and services they would not otherwise receive. This site
+          needs JavaScript enabled to display properly.
+        </p>
+        <p>
+          <a href="https://secure.4montgomeryskids.org/forms/donations" target="_blank" rel="noopener">
+            Donate to 4Montgomery's Kids
+          </a>
+        </p>
+        <p>
+          4Montgomery's Kids<br />
+          P.O. Box 34864, 10421 Motor City Drive<br />
+          Bethesda, MD 20817
+        </p>
+      </div>
+    </noscript>
+    <script type="module" src="/src/main.tsx"></script>
+  </body>
+</html>

@@ -1,0 +1,30 @@
+# Cache-Control policy for Cloudflare Pages (the primary deploy target —
+# see README "Deploying to Cloudflare Pages"). Cloudflare Pages reads this
+# file, not vercel.json, so the same three rules from vercel.json's
+# `headers` section are duplicated here so the policy actually takes effect
+# on the documented deploy target. Keep both files in sync if this changes.
+
+# Everything under /assets is content-hashed by Vite, so it can be cached
+# forever. Without this, repeat visits re-download the whole JS/CSS bundle.
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# Images and OG art are not content-hashed (stable filenames so the client
+# can swap a photo without a code change), so they get a long-but-
+# revalidatable TTL instead of immutable.
+/images/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+/og/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# Hero videos: stable filenames (not content-hashed), same long-but-
+# revalidatable treatment as /images and /og.
+/videos/*
+  Cache-Control: public, max-age=86400, stale-while-revalidate=604800
+
+# index.html is the SPA shell every route rewrites to (see _redirects) — it
+# must never be cached, or a deploy's new asset hashes stay invisible to
+# returning visitors.
+/index.html
+  Cache-Control: public, max-age=0, must-revalidate

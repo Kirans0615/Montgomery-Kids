@@ -1,0 +1,9 @@
+/25726-2/   /programs   301
+/25726-2    /programs   301
+/blog-2/*   /blog       301
+/blog-2     /blog       301
+/overview/  /about-us   301
+/overview   /about-us   301
+/about-us/  /about-us   301
+/our-stories/ /our-stories 301
+/*          /index.html 200
