@@ -41,6 +41,8 @@ const RESPONSIVE_BASENAMES = [
   "young-woman-driving.jpg",
   "peewee-football.jpg",
   "toddler-blocks.jpg",
+  "summer-camp-scouts.jpg",
+  "high-school-classroom.jpg",
   "board-leslie-shedlin.jpg",
   "board-agnes-leshner.jpg",
   "board-ronna-cook.jpg",

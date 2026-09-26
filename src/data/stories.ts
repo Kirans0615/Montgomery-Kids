@@ -48,7 +48,11 @@ export const homeStorySlides = [
     tag: "summer camp",
     title: "Summer Camp",
     body: "4Montgomery's Kids sends many children to summer camps. Most are the result of simple requests for usual camp activities. Some requests are more complex. For example, we sent siblings who witnessed domestic violence to a special overnight camp, and we sent an older child struggling with depression to a traveling teen camp.",
-    cover: { kind: "illustrated", icon: "Tent" },
+    cover: {
+      kind: "photo",
+      image: "summer-camp-scouts.jpg",
+      alt: "Two children in scout uniforms outside a tent, one playing guitar and one reading a scout field book",
+    },
   },
   {
     slug: "graduating-in-style",
@@ -70,7 +74,11 @@ export const homeStorySlides = [
     tag: "school",
     title: "Staying Connected to High School",
     body: "R is a high school student who recently moved from one foster care placement to another. Then came the pandemic—and with it, online learning. 4Montgomery's Kids purchased a tablet for him so R could attend his new school virtually and get to know his new classmates. With the help of his foster parents, R also is using the tablet for tutoring in Spanish.",
-    cover: { kind: "illustrated", icon: "Tablet" },
+    cover: {
+      kind: "photo",
+      image: "high-school-classroom.jpg",
+      alt: "High school students at their desks facing a classroom smartboard",
+    },
     donate: { label: "Donate", url: DONATE_URL },
   },
   {

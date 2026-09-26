@@ -22,6 +22,8 @@ const PHOTO_DIMS: Record<string, { width: number; height: number }> = {
   "graduate.jpg": { width: 509, height: 339 },
   "bike-ride.jpg": { width: 509, height: 339 },
   "peewee-football.jpg": { width: 506, height: 339 },
+  "summer-camp-scouts.jpg": { width: 1600, height: 1067 },
+  "high-school-classroom.jpg": { width: 1600, height: 1200 },
 };
 
 const PIN_DISTANCE_VH = 400;
