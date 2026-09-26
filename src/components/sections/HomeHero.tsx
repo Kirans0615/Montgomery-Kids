@@ -272,7 +272,7 @@ export default function HomeHero() {
               color="tangerine"
               duration={0.9}
               delay={1}
-              className="pointer-events-none absolute left-1/2 top-1/2 h-[calc(100%+2.75rem)] w-[calc(100%+1.5rem)] -translate-x-1/2 -translate-y-1/2 sm:h-[calc(100%+3.5rem)] sm:w-[calc(100%+2rem)]"
+              className="pointer-events-none absolute left-1/2 top-1/2 h-[calc(100%+3.75rem)] w-[calc(100%+2.5rem)] -translate-x-1/2 -translate-y-1/2 sm:h-[calc(100%+4.75rem)] sm:w-[calc(100%+3.25rem)]"
             />
           </span>
         </h1>
