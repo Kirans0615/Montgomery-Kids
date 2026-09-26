@@ -16,16 +16,13 @@ import { cn } from "@/lib/utils";
 import { publicUrl } from "@/lib/publicUrl";
 
 /**
- * Poster for the hero video. The brief names
- * `/images/opt/kids-writing-desks-1600.webp`, but the source photo
- * (`kids-writing-desks.jpg`) is only 1024px wide, so `scripts/optimize-images.mjs`
- * (which never upscales past the original — see its own comment) never
- * generates a -1600 variant; that exact path 404s. The largest variant the
- * same pipeline actually generates for this source, `-960.webp` (64KB vs.
- * the 168KB original JPEG), is used instead — a strictly better choice for
- * an above-the-fold, LCP-relevant poster.
+ * Poster for the hero video — a real frame pulled from the hero video itself
+ * (see HERO_VIDEO_HOME below), so there's no jarring flash from an unrelated
+ * photo to the actual video content once it loads. Generated at build time
+ * via scripts/optimize-images.mjs's standard 480/960/1600 pipeline; this uses
+ * the 1600 variant since the source is a full 1920px frame.
  */
-const HERO_POSTER = publicUrl("images/opt/kids-writing-desks-960.webp");
+const HERO_POSTER = publicUrl("images/opt/hero-kids-outdoors-1600.webp");
 
 /**
  * Presentational wordmark labels for the "Backed by" strip (build-prompt

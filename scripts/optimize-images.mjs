@@ -32,6 +32,7 @@ const WIDTHS = [480, 960, 1600];
 // mapping table (board-*, partner-*, and the named photo files).
 const RESPONSIVE_BASENAMES = [
   "kids-writing-desks.jpg",
+  "hero-kids-outdoors.jpg",
   "double-dutch.jpg",
   "dance-recital.jpg",
   "tug-of-war.jpg",
