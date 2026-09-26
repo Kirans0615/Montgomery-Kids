@@ -218,8 +218,8 @@ export default function HomeHero() {
           />
         )}
 
-        <div className="absolute inset-0 hidden bg-gradient-to-r from-brand-cream/95 via-brand-cream/70 to-transparent md:block" />
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-cream via-brand-cream/80 to-transparent md:hidden" />
+        <div className="absolute inset-0 hidden bg-gradient-to-r from-brand-cream/80 via-brand-cream/45 to-transparent md:block" />
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-cream/85 via-brand-cream/55 to-transparent md:hidden" />
 
         {showVideo && (
           <button
